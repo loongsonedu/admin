@@ -26,7 +26,7 @@ export default ({ id, handleClose, tableReload, ...props }) => {
   const handleSubmit = async (values) => {
     const tmp = {
       tag: 'star',
-      clientId: '385',
+      clientId: '466',
       ...values,
       avatarUrl: values.avatarUrl[0].url,
     };

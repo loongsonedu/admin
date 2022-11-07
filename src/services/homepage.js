@@ -3,7 +3,7 @@ import { request } from '@umijs/max';
 
 export async function fetchTeacherList(params) {
   return request(
-    '/seller/api/teachers/getAllTeachersByConditionsWithTotal?clientId=385',
+    '/seller/api/teachers/getAllTeachersByConditionsWithTotal?clientId=466',
     { params },
   ).then((res) => ({
     data: addListIndex(res.teacherList),
@@ -12,7 +12,7 @@ export async function fetchTeacherList(params) {
 }
 
 export async function fetchHomePageConf() {
-  return request('/seller/api/homepages?clientId.equals=385').then(([res]) => ({
+  return request('/seller/api/homepages?clientId.equals=466').then(([res]) => ({
     ...res,
     aboutUsImgUrl: [{ url: res.aboutUsImgUrl }],
     consultUrl: [{ url: res.consultUrl }],

@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 export async function fetchCourseList(params) {
   return request(
-    '/seller/api/coursesget/getAllCoursesByConditionsWithTotal?clientId=385',
+    '/seller/api/coursesget/getAllCoursesByConditionsWithTotal?clientId=466',
     {
       params: {
         ...params,
@@ -20,7 +20,7 @@ export async function fetchCourseList(params) {
 
 export async function fetchMemberList(params) {
   return request(
-    '/seller/api/students/getAllStudentsByConditionsWithTotal?clientId=385',
+    '/seller/api/students/getAllStudentsByConditionsWithTotal?clientId=466',
     { params },
   ).then((res) => ({
     data: addListIndex(res.studentList, params),
@@ -66,7 +66,7 @@ const statusFilter = (status, record) => {
 
 export async function fetchClassroomList({ classroomStatus = [], ...params }) {
   return request(
-    '/seller/api/course-classes?page=0&size=1000&clientId.equals=385&sort=startAt,desc&hasHomework=1',
+    '/seller/api/course-classes?page=0&size=1000&clientId.equals=466&sort=startAt,desc&hasHomework=1',
     { params },
   ).then((res) => {
     const data = res.filter((item) => statusFilter(classroomStatus, item));
@@ -90,7 +90,7 @@ export async function createCourse(data) {
     method: 'post',
     data: {
       teacher: '',
-      clientId: '385',
+      clientId: '466',
       client: {},
       isDelete: 1,
       ...data,
@@ -107,7 +107,7 @@ export async function updateCourse(data) {
 
 export async function fetchAllCourse() {
   return request(
-    '/seller/api/coursesget/getAllCoursesByConditionsWithTotal?clientId=385',
+    '/seller/api/coursesget/getAllCoursesByConditionsWithTotal?clientId=466',
   ).then((res) => res.totalNum);
 }
 
@@ -125,7 +125,7 @@ export async function fetchClassroomInfo(id) {
 export async function createClassroom(data) {
   return request('/seller/api/course-classes', {
     method: 'post',
-    data: { clientId: '385', ...data },
+    data: { clientId: '466', ...data },
   });
 }
 

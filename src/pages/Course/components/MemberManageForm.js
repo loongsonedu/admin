@@ -126,7 +126,7 @@ export default ({ id, handleClose, tableReload, ...props }) => {
       initialValues={{
         courseId,
         uniCourseId: searchParams.get('uniCourseId'),
-        clientId: '385',
+        clientId: '466',
       }}
     >
       <ProFormText
