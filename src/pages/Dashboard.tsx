@@ -1,4 +1,5 @@
 import { fetchConsumptionDuration } from '@/services/dashboard';
+import { secondsParse } from '@/utils';
 import {
   PageContainer,
   ProCard,
@@ -9,17 +10,6 @@ import { useRequest } from '@umijs/max';
 import { Col, Row, Statistic } from 'antd';
 import ReactECharts from 'echarts-for-react';
 import React from 'react';
-
-const secondsParse = (seconds: number) => {
-  const hours = Math.floor(seconds / 3600);
-  const mins = Math.floor((seconds % 3600) / 60);
-  const secs = (seconds % 3600) % 60;
-  return [
-    (hours && `${hours}时`) || '',
-    (mins && `${mins}分`) || '',
-    (secs && `${secs}秒`) || '',
-  ].join('');
-};
 
 const packChartData = (rawData: any) => {
   const list = (rawData?.daySummaryList || []).reverse();

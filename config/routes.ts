@@ -52,6 +52,12 @@ export default [
     component: './Homepage',
   },
   {
+    path: '/class/hour/statistics',
+    name: 'class.hour.statistics',
+    icon: 'home',
+    component: './ClassHourStatistics',
+  },
+  {
     path: '/admin',
     name: 'admin',
     icon: 'crown',

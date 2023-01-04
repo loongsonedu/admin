@@ -85,3 +85,14 @@ export const history = {
       : umiHistory.push(to, state);
   },
 };
+
+export const secondsParse = (seconds) => {
+  const hours = Math.floor(seconds / 3600);
+  const mins = Math.floor((seconds % 3600) / 60);
+  const secs = (seconds % 3600) % 60;
+  return [
+    (hours && `${hours}时`) || '',
+    (mins && `${mins}分`) || '',
+    (secs && `${secs}秒`) || '',
+  ].join('');
+};

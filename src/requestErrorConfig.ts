@@ -2,6 +2,7 @@
 import type { RequestOptions } from '@@/plugin-request/request';
 import type { RequestConfig } from '@umijs/max';
 import { message, notification } from 'antd';
+import QueryString from 'qs';
 
 // 错误处理方案： 错误类型
 enum ErrorShowType {
@@ -19,6 +20,8 @@ interface ResponseStructure {
   errorMessage?: string;
   showType?: ErrorShowType;
 }
+
+const clientId = process.env.clientId;
 
 /**
  * @name 错误处理
@@ -95,6 +98,28 @@ export const errorConfig: RequestConfig = {
         ...config,
         ...pageAntdToApi(config.params),
         url: `https://admin.maodouketang.com:8443${url}`,
+      };
+    },
+    // clientId 统一处理，会覆盖所有手动配置的clientId参数值
+    (config: RequestOptions) => {
+      const tmp = config.url?.split('?');
+      const params = Object.entries({
+        ...QueryString.parse(tmp?.[1] || ''),
+        ...config.params,
+      })
+        .map(([key, value]) => ({
+          [key]: key.includes('clientId') ? clientId : value,
+        }))
+        .reduce((pre, curr) => ({ ...pre, ...curr }), {});
+      const data = {
+        ...config.data,
+        clientId: config.data?.clientId ? clientId : undefined,
+      };
+      return {
+        ...config,
+        url: tmp?.[0],
+        params,
+        data,
       };
     },
   ],

@@ -6,4 +6,5 @@ export default {
   'menu.course': '课程管理',
   'menu.course.member-manage': '成员管理',
   'menu.homepage.conf': '首页管理',
+  'menu.class.hour.statistics': '课时统计',
 };

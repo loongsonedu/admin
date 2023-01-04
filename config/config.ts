@@ -12,6 +12,9 @@ export default defineConfig({
   publicPath: '/admin/',
   base: '/admin/',
   headScripts: [redirectScript],
+  define: {
+    'process.env.clientId': 385,
+  },
   // outputPath: '/admin/',
   /**
    * @name 开启 hash 模式
