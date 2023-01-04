@@ -13,7 +13,7 @@ export default defineConfig({
   base: '/admin/',
   headScripts: [redirectScript],
   define: {
-    'process.env.clientId': 385,
+    'process.env.clientId': 466,
   },
   // outputPath: '/admin/',
   /**
